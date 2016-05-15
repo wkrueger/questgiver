@@ -114,22 +114,22 @@ public class StepView extends RelativeLayout {
         mParentTitle.setText(parentTitle);
     }
 
-	public void setStep(final StepDO step) {
+    public void setStep(final StepDO step) {
         mStep = step;
 
-		//choose icon
-		int rid;
-		if ( mStep instanceof StepWeekDO ) rid = R.drawable.ic_recurrent_step;
-		else if ( mStep.isComplete() && mStep instanceof StepParentDO) rid = R.drawable.ic_checked_parent_step;
-		else if ( mStep.isComplete() ) rid = R.drawable.ic_complete_step;
-		else if ( mStep instanceof StepParentDO ) rid = R.drawable.ic_parent_step;
-		else rid = R.drawable.ic_empty_step;
+        //choose icon
+        int rid;
+        if ( mStep instanceof StepWeekDO ) rid = R.drawable.ic_recurrent_step;
+        else if ( mStep.isComplete() && mStep instanceof StepParentDO) rid = R.drawable.ic_checked_parent_step;
+        else if ( mStep.isComplete() ) rid = R.drawable.ic_complete_step;
+        else if ( mStep instanceof StepParentDO ) rid = R.drawable.ic_parent_step;
+        else rid = R.drawable.ic_empty_step;
 
         mIcon.setImageResource(rid);
 
-		//set the text
+        //set the text
         setShowProject(mShowProject);
-		mStepTitle.setText(mStep.title);
+        mStepTitle.setText(mStep.title);
 
         //set the indicator
         mIndicatorContainer.removeAllViews();
@@ -166,29 +166,29 @@ public class StepView extends RelativeLayout {
         }
     }
 
-	public StepDO getStep() {
-		return mStep;
-	}
-	
-	@Override
-	protected void onAnimationEnd() {
-		super.onAnimationEnd();
-		setBackground(getResources().getDrawable(R.drawable.state_list));
-	}
-	
-	@Override
-	public boolean equals(Object o) {
-		return ( o instanceof StepView && ((StepView) o).getStep().equals(getStep()) );
-	}
-	
-	@Override
-	public int hashCode() {
-		int init = 173;
-		return init + getStep().getId() * 3;
-	}
-	
-	@Override
-	public String toString() {
-		return "StepView:"+mStep.toString();
-	}
+    public StepDO getStep() {
+        return mStep;
+    }
+    
+    @Override
+    protected void onAnimationEnd() {
+        super.onAnimationEnd();
+        setBackground(getResources().getDrawable(R.drawable.state_list));
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        return ( o instanceof StepView && ((StepView) o).getStep().equals(getStep()) );
+    }
+    
+    @Override
+    public int hashCode() {
+        int init = 173;
+        return init + getStep().getId() * 3;
+    }
+    
+    @Override
+    public String toString() {
+        return "StepView:"+mStep.toString();
+    }
 }

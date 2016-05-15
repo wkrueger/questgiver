@@ -26,49 +26,49 @@ import java.util.Map;
 
 @EViewGroup
 public class TreeView extends LinearLayout {
-	
-	boolean mFlatInsert = false;
-	TreeViewIF mTreeIF;
-	private int mLeftMargin;
-	Map<View,LinearLayout> mGroups = new ArrayMap<>();
-	
-	@Bean
-	ViewUpdater updater;
-	
-	
-	
-	
-	
-	//PROPERTY SETTERS ETC
-	
-	/**
-	 * <b>Flat insert:</b> Every new view is inserted at the root container.
-	 * Affetcts inserts based on the data-object.
-	 */
-	public TreeView setFlatInsert(boolean opt) {
-		mFlatInsert = opt;
-		return this;
-	}
-	
-	public TreeView setIdentMargin(int dp) {
-		mLeftMargin = dp;
-		return this;
-	}
-	
-	public void setActionListeners(ActionListeners act) {
-		if ( act == null ) mActions = new ActionListeners();
-		else mActions = act;
-	}
-	
-	
-	
-	
-	
-	//CONSTRUCT
-	
-	/**
-	 *	Relationship between a view and a data object
-	 */
+    
+    boolean mFlatInsert = false;
+    TreeViewIF mTreeIF;
+    private int mLeftMargin;
+    Map<View,LinearLayout> mGroups = new ArrayMap<>();
+    
+    @Bean
+    ViewUpdater updater;
+    
+    
+    
+    
+    
+    //PROPERTY SETTERS ETC
+    
+    /**
+     * <b>Flat insert:</b> Every new view is inserted at the root container.
+     * Affetcts inserts based on the data-object.
+     */
+    public TreeView setFlatInsert(boolean opt) {
+        mFlatInsert = opt;
+        return this;
+    }
+    
+    public TreeView setIdentMargin(int dp) {
+        mLeftMargin = dp;
+        return this;
+    }
+    
+    public void setActionListeners(ActionListeners act) {
+        if ( act == null ) mActions = new ActionListeners();
+        else mActions = act;
+    }
+    
+    
+    
+    
+    
+    //CONSTRUCT
+    
+    /**
+     *  Relationship between a view and a data object
+     */
 
     public static abstract class TreeViewIF {
         public abstract List<View> getChildren(View view);
@@ -78,12 +78,12 @@ public class TreeView extends LinearLayout {
         public abstract int compareObjects(Object o1,Object o2);
         public abstract View createView(Object o);
     }
-	
-	public TreeView(Context context, TreeViewIF treeIF) {
-		super(context);
-		mTreeIF = treeIF;
-		mLeftMargin = 15;
-		setActionListeners(null);
+    
+    public TreeView(Context context, TreeViewIF treeIF) {
+        super(context);
+        mTreeIF = treeIF;
+        mLeftMargin = 15;
+        setActionListeners(null);
         setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         setDividerDrawable(getResources().getDrawable(android.R.drawable.divider_horizontal_bright));
         Handler mainThread = new Handler(Looper.getMainLooper());
@@ -93,10 +93,10 @@ public class TreeView extends LinearLayout {
                 propertyInit(TreeView.this);
             }
         });
-	}
-	
-	//Common properties
-	public void propertyInit(LinearLayout in) {
+    }
+    
+    //Common properties
+    public void propertyInit(LinearLayout in) {
 
         ViewGroup parent = (ViewGroup) in.getParent();
         ViewGroup.MarginLayoutParams params = new MarginLayoutParams(
@@ -112,74 +112,74 @@ public class TreeView extends LinearLayout {
 
         int appliedMargin = ( in instanceof TreeView ) ? 0 : Singleton.dpToPx(mLeftMargin);
         params.setMargins(appliedMargin,0,0,0);
-		in.setDividerDrawable(this.getDividerDrawable());
-		in.setShowDividers(getShowDividers());
-		in.setOrientation(LinearLayout.VERTICAL);
+        in.setDividerDrawable(this.getDividerDrawable());
+        in.setShowDividers(getShowDividers());
+        in.setOrientation(LinearLayout.VERTICAL);
 
         in.setLayoutParams(params);
 
-		LayoutTransition transition = new LayoutTransition();
-		transition.setDuration(200);
-		in.setLayoutTransition(transition);
-	}
+        LayoutTransition transition = new LayoutTransition();
+        transition.setDuration(200);
+        in.setLayoutTransition(transition);
+    }
 
-	
-	
-	
-	
+    
+    
+    
+    
 
-	
-	//EXPAND, CONTRACT
-	
-	@Background
-	public void expand(View view) {
-		List<View> children = mTreeIF.getChildren(view);
+    
+    //EXPAND, CONTRACT
+    
+    @Background
+    public void expand(View view) {
+        List<View> children = mTreeIF.getChildren(view);
         if ( children.size() == 0 ) return;
-		LinearLayout innerGroup = new LinearLayout(getContext());
-		propertyInit(innerGroup);
+        LinearLayout innerGroup = new LinearLayout(getContext());
+        propertyInit(innerGroup);
 
-		LinearLayout parent = (LinearLayout) view.getParent();
-		updater.addView(parent,innerGroup,parent.indexOfChild(view)+1);
-		mGroups.put(view, innerGroup);
-		
-		for ( View child : children ) {
+        LinearLayout parent = (LinearLayout) view.getParent();
+        updater.addView(parent,innerGroup,parent.indexOfChild(view)+1);
+        mGroups.put(view, innerGroup);
+        
+        for ( View child : children ) {
             setCommonOnLongClickListener(child);
             setCommonOnClickListener(child);
-			pushView(child);
-		}
-	}
-	
-	public void contract(View view) {
-		LinearLayout attachedGroup = mGroups.get(view);
-		updater.removeView(attachedGroup);
-		mGroups.remove(view);
-	}
-	
-	
-	//LISTENERS
-	
-	public class ActionListeners {
-		public void click(View v) {
-			if ( mGroups.get(v) == null ) expand(v);
-			else contract(v);
-		}
-		public boolean longClick(View v) {
-			return true;
-		}
-	}
-	
-	ActionListeners mActions;
-	
-	public void setCommonOnClickListener(final View view) {
-		view.setOnClickListener( new OnClickListener() {
-			public void onClick(View v) {
-				mActions.click(v);
-			}
-		});
-	}
-	
-	public void setCommonOnLongClickListener(final View view) {
-		view.setOnLongClickListener(new OnLongClickListener() {
+            pushView(child);
+        }
+    }
+    
+    public void contract(View view) {
+        LinearLayout attachedGroup = mGroups.get(view);
+        updater.removeView(attachedGroup);
+        mGroups.remove(view);
+    }
+    
+    
+    //LISTENERS
+    
+    public class ActionListeners {
+        public void click(View v) {
+            if ( mGroups.get(v) == null ) expand(v);
+            else contract(v);
+        }
+        public boolean longClick(View v) {
+            return true;
+        }
+    }
+    
+    ActionListeners mActions;
+    
+    public void setCommonOnClickListener(final View view) {
+        view.setOnClickListener( new OnClickListener() {
+            public void onClick(View v) {
+                mActions.click(v);
+            }
+        });
+    }
+    
+    public void setCommonOnLongClickListener(final View view) {
+        view.setOnLongClickListener(new OnLongClickListener() {
 
             @Override
             public boolean onLongClick(View v) {
@@ -187,46 +187,46 @@ public class TreeView extends LinearLayout {
             }
 
         });
-	}
-	
-	
-	//QUERY OPERATIONS
-	
-	public interface ViewQuery {
-		public boolean isSelected(Object o);
-	}
-	
-	@Background
-	public void removeViews(final ViewQuery query) {
-		
-		ViewTreeExecIF ifs = new ViewTreeExecIF() {	
-			@Override
-			public Object exec(View v) {
-				StepDO step = (StepDO) mTreeIF.getObject(v);
-				if ( query.isSelected(step) ) {
+    }
+    
+    
+    //QUERY OPERATIONS
+    
+    public interface ViewQuery {
+        public boolean isSelected(Object o);
+    }
+    
+    @Background
+    public void removeViews(final ViewQuery query) {
+        
+        ViewTreeExecIF ifs = new ViewTreeExecIF() { 
+            @Override
+            public Object exec(View v) {
+                StepDO step = (StepDO) mTreeIF.getObject(v);
+                if ( query.isSelected(step) ) {
                     updater.removeView(v);
                     if (mGroups.get(v) != null) {
                         updater.removeView(mGroups.get(v));
                         mGroups.remove(v);
                     }
                 }
-				return null;
-			}
-		};
-		
-		Singleton.viewTreeExec(this,ifs);
-		
-	}
+                return null;
+            }
+        };
+        
+        Singleton.viewTreeExec(this,ifs);
+        
+    }
 
     public void removeItem(Object o) {
         removeItem(o,false);
     }
 
-	@Background
-	public void removeItem(final Object o, final boolean updateParent) {
+    @Background
+    public void removeItem(final Object o, final boolean updateParent) {
 
-		ViewTreeExecIF ex = new ViewTreeExecIF() { 
-			public Object exec(View v) {
+        ViewTreeExecIF ex = new ViewTreeExecIF() { 
+            public Object exec(View v) {
             if ( mTreeIF.getObject(v).equals(o) ) {
                 updater.removeView(v);
                 View attached = mGroups.get(v);
@@ -236,23 +236,23 @@ public class TreeView extends LinearLayout {
                 return new Object();
             }
             return null;
-			}
-		};
-		Singleton.viewTreeExec(this,ex);
-	
-	}
-	
-	public View findView(final Object o) throws RGCheckedNull {
-		ViewTreeExecIF ex = new ViewTreeExecIF() {
-			public Object exec(View v) {
-				if ( mTreeIF.getObject(v).equals(o) ) return v;
-				else return null;
-			}
-		};
-		View out = (View) Singleton.viewTreeExec(this, ex);
-		if ( out == null ) throw new RGCheckedNull();
-		return out;
-	}
+            }
+        };
+        Singleton.viewTreeExec(this,ex);
+    
+    }
+    
+    public View findView(final Object o) throws RGCheckedNull {
+        ViewTreeExecIF ex = new ViewTreeExecIF() {
+            public Object exec(View v) {
+                if ( mTreeIF.getObject(v).equals(o) ) return v;
+                else return null;
+            }
+        };
+        View out = (View) Singleton.viewTreeExec(this, ex);
+        if ( out == null ) throw new RGCheckedNull();
+        return out;
+    }
 
     private void updateParent(View view) {
         try {
@@ -267,26 +267,26 @@ public class TreeView extends LinearLayout {
         } catch ( ClassCastException | NullPointerException e ) {} //naum kero nem sabe, engole se der m*
     }
 
-	@Background( serial = "treeUpdater" )
-	public void updateItem(final Object o) {
+    @Background( serial = "treeUpdater" )
+    public void updateItem(final Object o) {
 
-		final View view;
-		try {
-			view = findView(o);
-		} catch (RGCheckedNull e) {
-			//view not found, ignore
-			return;
-		}
+        final View view;
+        try {
+            view = findView(o);
+        } catch (RGCheckedNull e) {
+            //view not found, ignore
+            return;
+        }
 
         //differently from removeItem(), here the attached view is
         //not removed from the mGroups container since this is a
         //temporary removal
-		mTreeIF.refreshView(view);
-		updater.invalidate(view);
+        mTreeIF.refreshView(view);
+        updater.invalidate(view);
 
         updateParent(view);
 
-		updater.removeView(view);
+        updater.removeView(view);
         View attached = mGroups.get(view);
         if ( attached != null ) updater.removeView(attached);
 
@@ -300,12 +300,12 @@ public class TreeView extends LinearLayout {
         }
 
         insertView(view);
-	}
-	
-	@Background (serial="treeUpdater")
-	public void insertView(final View view) {
+    }
+    
+    @Background (serial="treeUpdater")
+    public void insertView(final View view) {
 
-		final Object o = mTreeIF.getObject(view);
+        final Object o = mTreeIF.getObject(view);
 
         final LinearLayout container;
         try {
@@ -315,21 +315,21 @@ public class TreeView extends LinearLayout {
         }
 
         //traverse to find the position
-		int index = findPosition(o,container);
-		
-		//add
-		updater.addView(container, view, index);
+        int index = findPosition(o,container);
+        
+        //add
+        updater.addView(container, view, index);
         View attached = mGroups.get(view);
-		if ( attached != null && attached.getParent() == null ) {
-			int gindex = (index==-1) ? -1 : index+1;
-			updater.addView(container, mGroups.get(view), gindex);
-		}
+        if ( attached != null && attached.getParent() == null ) {
+            int gindex = (index==-1) ? -1 : index+1;
+            updater.addView(container, mGroups.get(view), gindex);
+        }
         while (container.indexOfChild(view) == -1) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {}
         }
-	}
+    }
 
     //**BLOCKING
     public void pushView(final View view) {
@@ -394,7 +394,7 @@ public class TreeView extends LinearLayout {
                 return null;
             }
         };
-        Integer	index = (Integer) Singleton.viewTreeExec(container,ex2);
+        Integer index = (Integer) Singleton.viewTreeExec(container,ex2);
         index = ( index==null ) ? -1 : index;
         return index;
     }
@@ -403,14 +403,14 @@ public class TreeView extends LinearLayout {
         insertItem(o,false);
     }
 
-	public void insertItem(final Object o,boolean updateParent) {
-		final View view = mTreeIF.createView(o);
-		setCommonOnClickListener(view);
-		setCommonOnLongClickListener(view);
-		
-		insertView(view);
+    public void insertItem(final Object o,boolean updateParent) {
+        final View view = mTreeIF.createView(o);
+        setCommonOnClickListener(view);
+        setCommonOnLongClickListener(view);
+        
+        insertView(view);
         if ( updateParent ) updateParent(view);
-	}
+    }
 
     @Background ( serial = "treeUpdater")
     public void pushItem(Object o) {

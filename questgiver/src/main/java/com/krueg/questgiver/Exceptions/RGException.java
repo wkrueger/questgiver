@@ -1,30 +1,30 @@
 package com.krueg.questgiver.Exceptions;
 
 public class RGException extends Exception {
-	static final long serialVersionUID = 99L;
-	
-	public int id;
-	
-	public RGException ()
+    static final long serialVersionUID = 99L;
+    
+    public int id;
+    
+    public RGException ()
     {
     }
 
-	public RGException (String message)
+    public RGException (String message)
     {
-		super (message);
+        super (message);
     }
 
-	public RGException (Throwable cause)
+    public RGException (Throwable cause)
     {
-		super (cause);
+        super (cause);
     }
 
-	public RGException (String message, Throwable cause)
+    public RGException (String message, Throwable cause)
     {
-		super (message, cause);
+        super (message, cause);
     }
-	
-	public RGException (int id) {
-		
-	}
+    
+    public RGException (int id) {
+        
+    }
 }

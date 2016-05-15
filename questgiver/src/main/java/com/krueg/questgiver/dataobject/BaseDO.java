@@ -30,136 +30,136 @@ import java.util.List;
  */
 public abstract class BaseDO implements Comparable<BaseDO> {
 
-	Integer id;
-	
-	public Integer getId() {
-		return id;
-	}
-	
-	public BaseDO() {}
-	
-	public BaseDO (Cursor c) {
-		if ( c.getCount() == 0 ) throw new EmptyCursorException();
-		if ( c.getPosition() == -1 ) c.moveToNext();
-		id = c.getInt(c.getColumnIndex("_id"));
-		initialize(c);
-	}
-	
-	public BaseDO (int pk)  {
-		String[] args = { Integer.toString(pk) };
-		Cursor c = Singleton.db_r.query(getTable(), null, "_id = ?", args, null, null, null);
-		if ( c.getPosition() == -1 ) c.moveToNext();
-		if ( c.getCount() == 0 ) throw new PkNotFoundException();
-		id = c.getInt(c.getColumnIndex("_id"));
-		initialize(c);
-	}
-	
-	public abstract String getTable();
-	
-	abstract ContentValues preSaveHook();
-	void onSuccessfulInsert() {}
-	void onSuccessfulUpdate() {}
-	
-	public Integer create() {
-		
-		ContentValues values = preSaveHook();
-		
-		if ( id == null ){
-			try {
-				Singleton.db_w.beginTransaction();
-				id = (int)Singleton.db_w.insertOrThrow(getTable(), null, values);
-				Singleton.db_w.setTransactionSuccessful();
-			}
-			finally {
-				Singleton.db_w.endTransaction();
-			}
-			
-			//on new step successfully created 
-			if ( id != -1 ) {
-				onSuccessfulInsert();
-			}
-		} else throw new RGRuntimeException("Trying to insert into existing step");
-		return id;
-	}
-	
-	public void update() {
-		
-		ContentValues values = preSaveHook();
-		
-		if ( id != null ) {
-			try {
-				Singleton.db_w.beginTransaction();
-				String[] args = { Integer.toString(id) };
-				Singleton.db_w.update(getTable(), values , "_id = ?", args);
-				Singleton.db_w.setTransactionSuccessful();
-			}
-			finally {
-				Singleton.db_w.endTransaction();
-			}
-			
-			//on step updated
-			onSuccessfulUpdate();
-			
-		}
-	}
-	
-	/**
-	 * Given a queried line, fill up the object
-	 * @param c Internal parameter
-	 */
-	abstract void initialize(Cursor c);
-	
-	public void delete() {
-		if ( id == null) return;
-		try {
-			Singleton.db_w.beginTransaction();
-			String[] args = { Integer.toString(id) };
-			Singleton.db_w.delete(getTable(), "_id = ?", args);
-			Singleton.db_w.setTransactionSuccessful();
-		} finally {
-			Singleton.db_w.endTransaction();
-		}
-	}
-	
-	@Override
-	public int compareTo(BaseDO another) {
-		if ( another.id == id ) return 0;
-		Integer b = another.id;
-		return b.compareTo(id);
-	}
-	
-	public <T extends BaseDO> List<T> listMe() {
-		Cursor c = Singleton.db_r.query(getTable(), null, null, null,
-				null, null, null, null);
-		return listMe(c);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public <T extends BaseDO> List<T> listMe(Cursor c) {
-		List<T> list = new ArrayList<T>();
-		while ( c.moveToNext() ) {
-			T obj;
-			try {
-				obj = (T) this.getClass().getConstructor(Cursor.class).newInstance(c);
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-			list.add(obj);
-		}
-		Collections.sort(list);
-		return list;
-	}
-	
-	@Override
-	public boolean equals(Object o) {
-		if ( this.getClass() != o.getClass() ) return false;
-		return ((BaseDO)o).id.equals(id);
-	}
-	
-	@SuppressWarnings("static-method")
-	public String getSQLOrderClause() {
-		return "_id ASC";
-	}
+    Integer id;
+    
+    public Integer getId() {
+        return id;
+    }
+    
+    public BaseDO() {}
+    
+    public BaseDO (Cursor c) {
+        if ( c.getCount() == 0 ) throw new EmptyCursorException();
+        if ( c.getPosition() == -1 ) c.moveToNext();
+        id = c.getInt(c.getColumnIndex("_id"));
+        initialize(c);
+    }
+    
+    public BaseDO (int pk)  {
+        String[] args = { Integer.toString(pk) };
+        Cursor c = Singleton.db_r.query(getTable(), null, "_id = ?", args, null, null, null);
+        if ( c.getPosition() == -1 ) c.moveToNext();
+        if ( c.getCount() == 0 ) throw new PkNotFoundException();
+        id = c.getInt(c.getColumnIndex("_id"));
+        initialize(c);
+    }
+    
+    public abstract String getTable();
+    
+    abstract ContentValues preSaveHook();
+    void onSuccessfulInsert() {}
+    void onSuccessfulUpdate() {}
+    
+    public Integer create() {
+        
+        ContentValues values = preSaveHook();
+        
+        if ( id == null ){
+            try {
+                Singleton.db_w.beginTransaction();
+                id = (int)Singleton.db_w.insertOrThrow(getTable(), null, values);
+                Singleton.db_w.setTransactionSuccessful();
+            }
+            finally {
+                Singleton.db_w.endTransaction();
+            }
+            
+            //on new step successfully created 
+            if ( id != -1 ) {
+                onSuccessfulInsert();
+            }
+        } else throw new RGRuntimeException("Trying to insert into existing step");
+        return id;
+    }
+    
+    public void update() {
+        
+        ContentValues values = preSaveHook();
+        
+        if ( id != null ) {
+            try {
+                Singleton.db_w.beginTransaction();
+                String[] args = { Integer.toString(id) };
+                Singleton.db_w.update(getTable(), values , "_id = ?", args);
+                Singleton.db_w.setTransactionSuccessful();
+            }
+            finally {
+                Singleton.db_w.endTransaction();
+            }
+            
+            //on step updated
+            onSuccessfulUpdate();
+            
+        }
+    }
+    
+    /**
+     * Given a queried line, fill up the object
+     * @param c Internal parameter
+     */
+    abstract void initialize(Cursor c);
+    
+    public void delete() {
+        if ( id == null) return;
+        try {
+            Singleton.db_w.beginTransaction();
+            String[] args = { Integer.toString(id) };
+            Singleton.db_w.delete(getTable(), "_id = ?", args);
+            Singleton.db_w.setTransactionSuccessful();
+        } finally {
+            Singleton.db_w.endTransaction();
+        }
+    }
+    
+    @Override
+    public int compareTo(BaseDO another) {
+        if ( another.id == id ) return 0;
+        Integer b = another.id;
+        return b.compareTo(id);
+    }
+    
+    public <T extends BaseDO> List<T> listMe() {
+        Cursor c = Singleton.db_r.query(getTable(), null, null, null,
+                null, null, null, null);
+        return listMe(c);
+    }
+    
+    @SuppressWarnings("unchecked")
+    public <T extends BaseDO> List<T> listMe(Cursor c) {
+        List<T> list = new ArrayList<T>();
+        while ( c.moveToNext() ) {
+            T obj;
+            try {
+                obj = (T) this.getClass().getConstructor(Cursor.class).newInstance(c);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+            list.add(obj);
+        }
+        Collections.sort(list);
+        return list;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if ( this.getClass() != o.getClass() ) return false;
+        return ((BaseDO)o).id.equals(id);
+    }
+    
+    @SuppressWarnings("static-method")
+    public String getSQLOrderClause() {
+        return "_id ASC";
+    }
 
 }

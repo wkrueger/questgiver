@@ -13,33 +13,33 @@ import org.androidannotations.annotations.UiThread;
 @SuppressWarnings("static-method")
 @EBean( scope = Scope.Singleton )
 public class ViewUpdater {
-	public ViewUpdater() {
-	}
-	
-	@UiThread
-	public void removeView(View view) {
-		((ViewGroup)view.getParent()).removeView(view);
-	}
+    public ViewUpdater() {
+    }
+    
+    @UiThread
+    public void removeView(View view) {
+        ((ViewGroup)view.getParent()).removeView(view);
+    }
 
-	@UiThread
-	public void addView(LinearLayout parent,View inner,int index) {
-		parent.addView(inner,index);
+    @UiThread
+    public void addView(LinearLayout parent,View inner,int index) {
+        parent.addView(inner,index);
         //if ( ((StepView)inner).getStep() instanceof StepParentDO) Log.d("test-view", ((StepView) inner).getStep().title);
-	}
+    }
 
     @UiThread
     public void addView(LinearLayout parent,View inner,int index,ViewGroup.LayoutParams params) {
         parent.addView(inner,index,params);
     }
 
-	@UiThread
-	public void invalidate(View view) {
-		view.invalidate();
-	}
-	
-	@UiThread
-	public void setImageBitmap(ImageView view,Bitmap bmp) {
-		view.setImageBitmap(bmp);
-	}
-	
+    @UiThread
+    public void invalidate(View view) {
+        view.invalidate();
+    }
+    
+    @UiThread
+    public void setImageBitmap(ImageView view,Bitmap bmp) {
+        view.setImageBitmap(bmp);
+    }
+    
 }
