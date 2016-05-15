@@ -1,0 +1,24 @@
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/rg.noPadding" 
+    android:id="@+id/rootView">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="?android:dividerHorizontal"
+        android:id="@+id/rootLinear">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/buttonAddNew"
+            android:background="@drawable/state_list"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:text="@string/Add"
+            android:gravity="center_vertical|center_horizontal"
+            android:textColor="@color/darkGray" />
+    </LinearLayout>
+</ScrollView>

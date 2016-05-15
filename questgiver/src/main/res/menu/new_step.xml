@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/menu_step_ok"
+        android:title="@string/done"
+        android:showAsAction="always"
+        android:orderInCategory="1" />
+    <item android:id="@+id/menu_step_cancel"
+        android:title="@string/cancel"
+        android:showAsAction="always"
+        android:orderInCategory="2" />
+</menu>

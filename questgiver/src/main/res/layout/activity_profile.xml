@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.krueg.questgiver.views.SwipelessViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profilePager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

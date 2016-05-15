@@ -1,0 +1,72 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="android:Theme.Holo">
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:textAppearanceSmall">@style/rg.textSmall</item>
+        <item name="android:actionBarStyle">@style/rgActionBar</item>
+        <item name="android:actionBarTabStyle">@style/rgTab</item>
+        <item name="android:actionBarTabTextStyle">@style/rg.textSmall</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style> 
+    
+    <style name="rg" parent="AppTheme">
+    </style>
+    
+    <style name="rg.textList" parent="rg">
+        <item name="android:paddingLeft">@dimen/defaultMargin</item>
+        <item name="android:paddingRight">@dimen/defaultMargin</item>
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">@dimen/listViewHeight</item>
+	    <item name="android:gravity">center_vertical</item>
+	    <item name="android:minHeight">@dimen/listViewHeight</item>
+	    <item name="android:textColor">?android:attr/textColorPrimary</item>
+	    <item name="android:divider">?android:dividerVertical</item>
+	    <item name="android:dividerPadding">2dp</item>
+    </style>
+    
+    <style name="rgActionBar" parent="android:Widget.Holo.ActionBar">
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:background">#4F1308</item>
+        <item name="android:titleTextStyle">@style/rgTitleText</item>
+    </style>
+    
+    <style name="rgTab" parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <item name="android:background">@color/lightGray</item>
+    </style>
+    
+    <style name="rgTitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    
+    <style name="rg.noPadding" parent="rg">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+    
+    <style name="rg.textSmall" parent="android:TextAppearance.Small">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="rg.wideBar" parent="rg">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:background">@color/lightGray</item>
+	    <item name="android:paddingLeft">12dp</item>
+	    <item name="android:paddingRight">12dp</item>
+	    <item name="android:paddingTop">6dp</item>
+	    <item name="android:paddingBottom">6dp</item>
+	    <item name="android:layout_marginLeft">0dp</item>
+	    <item name="android:layout_marginRight">0dp</item>
+	    <item name="android:layout_marginBottom">0dp</item>
+	    <item name="android:layout_marginTop">6dp</item>
+    </style>
+    
+    <style name="rg.wideBar.composite" parent="rg.wideBar">
+        <item name="android:padding">0dp</item>
+    </style>
+    
+</resources>

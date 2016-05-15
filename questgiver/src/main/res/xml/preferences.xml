@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory 
+        android:title="@string/notifications" >
+		<CheckBoxPreference
+	        android:key="pref_notif_60pct"
+	        android:title="@string/prefs_notif_60pct_title"
+	        android:summary="@string/prefs_notif_60pct_desc"
+	        android:defaultValue="true" />
+        <CheckBoxPreference
+            android:key="pref_notif_expire"
+            android:title="@string/prefs_notif_expire_title"
+            android:summary="@string/prefs_notif_expire_desc"
+            android:defaultValue="true" />
+		<CheckBoxPreference
+	        android:key="pref_notif_dailyweek"
+	        android:title="@string/prefs_notif_dailyweek_title"
+	        android:summary="@string/prefs_notif_dailyweek_desc"
+	        android:defaultValue="true" />
+	  <com.krueg.questgiver.views.TimePreference
+	       android:key="pref_action_dailyTime"
+	       android:title="@string/prefs_notif_dailytime"
+	       android:summary="@string/prefs_notif_dailytime_desc"
+	       android:defaultValue="08:00"
+	       />
+	</PreferenceCategory>
+	<PreferenceCategory
+	    android:title="@string/action_tab">
+	    <EditTextPreference
+	        android:inputType="numberDecimal"
+	        android:key="pref_action_showThreshold"
+	        android:title="@string/pref_action_showThreshold_title"
+	        android:summary="@string/pref_action_showThreshold_desc"
+	        android:defaultValue="0"
+	        />
+	</PreferenceCategory>
+
+  <PreferenceCategory
+    android:title="@string/hacks">
+		<Preference
+	    android:title="@string/prefs_clear_trash"
+	    android:key="pref_clear_trash"/>   
+	</PreferenceCategory>    
+</PreferenceScreen>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StepView">
+    </declare-styleable>
+    
+    <declare-styleable name="IntegerWithLabelView">
+        <attr name="label" format="string"/>
+        <attr name="value" format="integer"/>
+    </declare-styleable>
+</resources>

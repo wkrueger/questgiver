@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/tabDashboard"
+        android:showAsAction="always"
+        android:title="@string/actions" />
+    <item
+        android:id="@+id/tabProjects"
+        android:showAsAction="always"
+        android:title="@string/perklines" />
+    <item
+        android:id="@+id/menuProfileHideComplete"
+        android:title="@string/hide_complete"
+        android:icon="@drawable/ic_hide_complete_step_white"
+        android:checkable="true"
+        android:showAsAction="ifRoom"
+        android:checked="false"
+        />
+    <item
+        android:id="@+id/menuProfileActLog"
+        android:title="@string/activity_log" />
+    <item
+        android:id="@+id/menuProfileNotif"
+        android:title="@string/alerts"/>
+    <item
+        android:id="@+id/menuProfileDocs"
+        android:title="@string/docs_label"/>
+    <item
+        android:id="@+id/menuProfileOpt"
+        android:title="@string/options" />
+    <item
+        android:id="@+id/menuSetProgress"
+        android:title="@string/menu_cheat_set_progress"/>
+    <item
+        android:id="@+id/menuDbDump"
+        android:title="@string/db_dumper" />
+    <item
+        android:id="@+id/menuTestNotif"
+        android:title="@string/test_notification" />
+</menu>

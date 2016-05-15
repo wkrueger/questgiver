@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Questgiver</string>
+    <string name="action_settings">Opções</string>
+    <string name="character_name">yay</string>
+    <string name="skills">Habilidades</string>
+    <string name="perklines">Planejamento</string>
+    <string name="recent_activities">Atividades recentes</string>
+    <string name="Add">Adicionar...</string>
+    <string name="title_activity_new_skill">Habilidade</string>
+    <string name="skill_name">Nome da habilidade</string>
+    <string name="skill_desc">Descrição da habilidade (opcional)</string>
+    <string name="plus">+</string>
+    <string name="val_existant">Isso já existe!</string>
+    <string name="title_activity_perkline">Projeto</string>
+    <string name="available_questlines">Projetos disponíveis:</string>
+    <string name="new_perkline">Novo projeto</string>
+    <string name="title_activity_new_perkline">Projeto</string>
+    <string name="title">Título</string>
+    <string name="description">Descrição</string>
+    <string name="new_quesline_reward">Nova recompensa</string>
+    <string name="done">Pronto</string>
+    <string name="cancel">Cancelar</string>
+    <string name="rewards">Recompensas</string>
+    <string name="new_step">Nova etapa</string>
+    <string name="title_activity_new_step">Etapa</string>
+    <string name="step_title">Título da etapa</string>
+    <string name="step_desc">Descrição da etapa</string>
+    <string name="skill">Habilidade</string>
+    <string name="available">Disponível</string>
+    <string name="perk_title">Título do projeto</string>
+    <string name="err_step_title_min_size">O título deve conter no mínimo 1 caractere.</string>
+    <string name="move_up">Mover para cima</string>
+    <string name="move_down">Mover para baixo</string>
+    <string name="remove">Remover</string>
+    <string name="set_complete">Marcar como completo</string>
+    <string name="err_not_enough_sk_pt_available">Não existem pontos de recompensa suficientes.</string>
+    <string name="delete">Apagar</string>
+    <string name="steps">Etapas</string>
+    <string name="actions">Painel</string>
+    <string name="act_step_complete">Etapa %1$s completa! Ganho %2$s!</string>
+    <string name="what_did_you_do">O que você fez hoje?</string>
+    <string name="new_loose_act">Novo registro independente</string>
+    <string name="act_loose_act_complete">Atividade %1$s registrada! Ganho %2$s!</string>
+    <string name="err_duplicate">Não é possível criar o item. Isso resultaria em uma duplicata.</string>
+    <string name="err_step_reward">Tem algo de errado com as suas recompensas. (campo vazio?)</string>
+	<string name="err_rew_name">O nome de uma habilidade deve ter no mínimo 4 caracteres e ser único.</string>
+	<string name="err_perk_name">O nome do projeto deve ter no mínimo 4 caracteres e ser único.</string>
+	<string name="act_recurrent_step_complete">Etapa %1$s de hoje completa! O progresso na semana é %2$s.</string>
+	<string name="step_recurrency">Recorrência</string>
+	<string name="step_recurrency_single">Única</string>
+	<string name="step_recurrency_daily">Objetivo semanal</string>
+	<string name="step_set_repeats">Indique a quantas vezes na semana você terá que completar o objetivo para que ganhe as recompensas</string>
+	<string name="shop">Loja</string>
+	<string name="reward_type">Tipo de recompensa</string>
+	<string name="coin">Moeda</string>
+	<string name="new_cost">Novo custo</string>
+	<string name="product_name">Nome do produto</string>
+	<string name="award_coin">Recompensar moeda por ponto ganho:</string>
+	<string name="change_coin_points">Alterar moedas ganhas por ponto</string>
+	<string name="step_change_relevance">Alterar importância da etapa</string>
+	<string name="relevance">Importância</string>
+	<string name="step_relevance">Multiplicador de importância</string>
+	<string name="step_change_deadline">Alterar prazo</string>
+	<string name="not_applicable">(Não aplicável)</string>
+	<string name="deadline">Prazo</string>
+	<string name="act_buy">Comprou %1$s por %2$s.</string>
+	<string name="step_set_deadline">Prazo (horas)</string>
+	<string name="step_not_today">Hoje não!</string>
+	<string name="step_not_today_help">Você ainda pode encontrar essa etapa (e a completar) acessando a tela de Projetos.</string>
+	<string name="buy">Comprar</string>
+	<string name="skill_my_name">Meu primeiro nome</string>
+	<string name="skill_what_am_i">O que sou eu?</string>
+	<string name="edit">Alterar</string>
+	<string name="myself">Eu</string>
+	<string name="err_myname">O nome deve ter no mínimo 2 caracteres.</string>
+	<string name="act_empty_text">Parece que você é novo por aqui! Essa aba exibirá de forma classificada as etapas que você incluir pela aba "Planejamento".</string>
+	<string name="rew_empty_text">Em que habilidades você deseja progredir? Etapas de projetos completadas podem dar pontos de habilidade.</string>
+	<string name="project_empty_text">Adicione projetos os quais serão divididos em etapas. As etapas poderão ser acompanhadas na primeira aba.</string>
+	<string name="reward_delete_confirm">Ao remover essa recompensa, ela também estará sendo removida das etapas a seguir. Isso não pode ser revertido.</string>
+	<string name="step_choose_subsequent">Escolha uma das etapas em sequência</string>
+	<string name="step_recurrency_subsequent">Subsequente</string>
+	<string name="step_is_complete">(Etapa completa)</string>
+	<string name="err_file_not_found">Conteúdo não encontrado</string>
+	<string name="err_file_not_saved">O arquivo não foi salvo.</string>
+	<string name="tip_hold_to_edit">Dê um toque longo para editar</string>
+	<string name="step_delete_confirm">Confirme a remoção da etapa %1$s.</string>
+	<string name="prefs_notification_behavior">Notificações</string>
+	<string name="options">Ajustes</string>	
+	<string name="notifications">Notificações</string>
+	<string name="notif_60pct_smalltext">60% do prazo já passou!</string>
+	<string name="notif_dailyweek_smalltext">Mínimo por semana</string>
+	<string name="prefs_notif_dailyweek_title">Limite semanal</string>
+    <string name="prefs_notif_dailyweek_desc">Alertar se não completar uma etapa diária acarretará na falha do objetivo semanal.</string>
+	<string name="prefs_notif_60pct_title">60% do prazo</string>
+    <string name="prefs_notif_60pct_desc">Mostra uma notificação quando uma etapa estiver a 60% de seu prazo. Apenas se aplica a etapas únicas ou subsequentes.</string>
+    <string name="pref_action_showThreshold_title">Limite de relevância</string>
+    <string name="pref_action_showThreshold_desc">Valor mínimo de relevância (incluindo % para o prazo) para que uma etapa seja mostrada na aba "ações".</string>
+    <string name="message">Mensagem</string>
+    <string name="action_tab">Aba de ações</string>
+    <string name="step_initally_disabled">Inicialmente desativada</string>
+    <string name="activate">Ativar</string>
+    <string name="reward_new">Novo&#8230;</string>
+    <string name="project_delete_conf">Confirme a remoção desse projeto.</string>
+    <string name="err_step_children_not_complete">Todas as etapas filhas devem estar completas antes de marcar uma etapa pai como completa.</string>
+    <string name="type">Tipo</string>
+    <string name="step_recurrency_parent">Grupo de etapas</string>
+    <string name="step_parent_delete">Isso também removerá todas as etapas filhas.</string>
+    <string name="step_move">Mover</string>
+    <string name="step_move_to_arg">Mover para &#8230;</string>
+    <string name="hold_to_select">Toque longo para selecionar alvo, arrasto horizontal pra selecional mais origens.</string>
+    <string name="hide_complete">Ocultar completos</string>
+    <string name="title_activity_notification">Notificações</string>
+    <string name="pref_step_progressbg_title">Mostrar o fundo de grupos de etapas</string>
+	<string name="pref_step_progressbg_desc">O fundo mostra o progresso do grupo em forma de uma barra.</string>
+	<string name="title_activity_docs">Detalhes</string>
+	<string name="step_hourcost_desc">Tempo tomado esperado (horas)</string>
+	<string name="discipline">Disciplina</string>
+	<string name="activity_log">Registro</string>
+	<string name="docs_label">Mais informações</string>
+	<string name="alerts">Alertas</string>
+    <string name="title_activity_db_dumper">Trapaça: Ver dados</string>
+    <string name="db_dumper">Trapaça: Ver dados</string>
+	<string name="menu_cheat_set_progress">Trapaça: Determinar pontos</string>
+    <string name="test_notification">Trapaça: Notificação de teste</string>
+    <string name="contentdesc_step_type_icon">Ícone de tipo de etapa</string>
+	<string name="notif_short_type_0">60%</string>
+    <string name="notif_short_type_1">seman.</string>
+    <string name="notif_short_type_2">expirado</string>
+  
+  <string name="hacks">Gambiarras</string>
+  <string name="prefs_clear_trash">Limpar sujeira</string>
+	<string name="prefs_notif_dailytime">Horário do alerta diário</string>
+	<string name="prefs_notif_dailytime_desc">Notificações que ocorrem em base diária serão enviadas nesse horário.</string>
+  <string name="docs_html">
+<![CDATA[
+<html>
+<body>
+  <h1>Referência</h1>
+    <h2>Etapas</h2>
+    <section>
+      Todas as etapas possuem as seguintes propriedades
+      as quais são utilizadas na sua ordenação e no funcionamento
+      do indicador de eficiência.
+      
+      <ul>
+        <li>
+          <em>Relevância</em>
+          A relevância é utilizada primariamente pra ordenar a
+          exibição de etapas. A relevância final de uma etapa é
+          calculada por multiplicação da relevância da etapa e da
+          de todas as etapas pai.
+        </li>
+        <li>
+          <em>Estimativa de horas para execução</em>
+          A estimativa é usada primariamente como base pra pontuação 
+          ganha ao se completar a etapa. Embora na prática seja difícil 
+          se fornecer estimativas precisas, é incentivada sempre a divisão
+          de grandes etapas em subetapas, o que alivia o esse problema.
+        </li>
+        <li>
+          <em>Prazo ou repetições</em>
+          O prazo serve como uma meta de conclusão, sendo diferente da
+          estimativa de horas pra execução. Etapas mais próximas da
+          expiração ganham prioridade na ordenação. O prazo não afeta
+          no indicador de disciplina, exceto se extrapolado: Nesse caso 
+          há um pesado desconto de pontos proporcional ao tempo extrapolado.
+        </li>
+      </ul>
+    </section>
+    <h2>Ordenação</h2>
+    <section>
+      A ordenação é dada por:
+      <p><center><em>pontuação = relevância final * pontuação de realização.</em></center></p>
+      A pontuação de realização varia de 0 a 1, sendo 1 para uma etapa vencida
+      ou prestes a extrapolar seu prazo. Pra etapas semanais a pontuação de
+      realização é:
+      <p><center><em>pontuação de realização semanal = repetições restantes para a meta 
+        / dias disponíveis pra completar a meta.</em></center></p>
+      A relevância final é a relevância da etapa multiplicada pela relevância
+      de todas as etapas pais.
+    </section>
+    <h2>Indicador de eficiência</h2>
+      É uma forma de feedback com objetivos de:
+      <ul>
+        <li>Incentivar o uso do aplicativo</li>
+        <li>Incentivar o melhor planejamento</li>
+        <li>Incentivar a disciplina</li>
+      </ul>
+      
+      Algumas mecânicas:
+      <ul>
+        <li>
+          <em>Decaimento</em>
+          A pontuação está constantemente descendo com o tempo, de modo
+          a incentivar o <em>uso contínuo</em> do organizador de tarefas.
+          A pontuação vai de 100 a 0 apenas pelo decaimento em aproximadamente 
+          3 dias. Os bônus de tarefas completas são baseados no decaimento
+          e em uma meta diária de horas (~6).
+        </li>
+        <li>
+          <em>Dificuldade dinâmica</em>
+          À medida em que a pontuação sobe, os bônus recebidos sofrem 
+          redução (e vice-versa).
+        </li>
+        <li>
+          <em>Mudança de planos</em>
+          Mudanças nas três propriedades principais de etapas promovem
+          uma pequena perda de pontos. Remover etapas incompletas promove
+          perda de pontos.
+        </li>
+        <li>
+          <em>Nunca atrase</em>
+          Atrasos promovem uma perda grande de pontos. Adiar uma tarefa
+          prestes a se tornar atrasada trás uma perda bem inferior.
+        </li>
+        <li>
+          <em>Prioridades antes</em>
+          Completar uma tarefa que não seja a de maior relevância na
+          lista trás uma pequena redução no ganho de pontos.
+        </li>
+        <li>
+          <em>Período de graça</em>
+          Quaisquer ações tomadas sobre uma etapa dentro de um pequeno
+          intervalo de tempo após a sua criação não incutem mudanças de 
+          pontuação.
+        </li>
+      </ul>
+</body>
+</html>
+
+]]>
+  </string>
+    <string name="prefs_notif_expire_title">Ao expirar</string>
+    <string name="prefs_notif_expire_desc">Mostra um aviso quando o prazo de uma tarefa expira.</string>
+    <string name="notif_expire_smalltext">Está expirada</string>
+
+    <string name="notif_short_type_3">KO</string>
+    <string name="notif_abandon_title">Tá aí?</string>
+    <string name="notif_abandon_text">Pontuação abaixo de 10%</string>
+</resources>

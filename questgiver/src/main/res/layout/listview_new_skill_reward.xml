@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	     xmlns:prg="http://schemas.android.com/apk/res-auto" >
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="5"/>
+    
+      <antistatic.spinnerwheel.WheelVerticalView
+          android:id="@+id/wheel"
+          android:layout_width="wrap_content"
+          android:layout_height="36dp"
+          prg:visibleItems="1"
+          prg:selectionDivider="@drawable/wheel_h_divider" />
+</merge>

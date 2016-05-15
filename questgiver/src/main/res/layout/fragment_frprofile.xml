@@ -1,0 +1,71 @@
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/rg.noPadding" >
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:divider="?android:dividerHorizontal"
+	  android:showDividers="middle"
+	  android:gravity="center"
+	  android:id="@+id/rootGroup"
+	  android:padding="0dp" >
+
+	    
+	    <RelativeLayout
+	        android:id="@+id/progressFrame"
+	        android:layout_width="match_parent"
+	        android:layout_height="60dp"
+	        android:padding="10dp" >
+
+	        <ImageView
+	            android:id="@+id/progBar"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:layout_centerHorizontal="true"
+	            android:adjustViewBounds="true"
+	            android:contentDescription="@string/discipline"
+	            android:src="@drawable/img_progressbar" />
+
+	        <FrameLayout
+	            android:id="@+id/pinGroup"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBottom="@+id/progBar"
+	            android:layout_alignLeft="@+id/progBar"
+	            android:layout_marginLeft="30dp"
+	            android:layout_marginBottom="4dp"
+	            android:padding="0dp" >
+
+	            <ImageView
+	                android:id="@+id/progressPin"
+	                android:layout_width="wrap_content"
+	                android:layout_height="35dp"
+	                android:adjustViewBounds="true"
+	                android:padding="0dp"
+	                android:scaleType="fitStart"
+	                android:src="@drawable/img_pin" />
+
+	            <ImageView
+	                android:id="@+id/progressAvatar"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:scaleType="fitCenter" />
+	            
+	        </FrameLayout>
+	    </RelativeLayout>
+			
+		<LinearLayout
+		    android:id="@+id/activityLW"
+		    android:layout_width="match_parent"
+	     	android:layout_height="wrap_content"
+	     	android:orientation="vertical"
+	     	android:divider="?android:dividerHorizontal"
+        android:showDividers="middle"
+        android:padding="0dp" />
+   
+	</LinearLayout>
+</ScrollView>
