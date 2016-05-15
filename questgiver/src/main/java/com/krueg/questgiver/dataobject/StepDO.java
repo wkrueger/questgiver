@@ -88,23 +88,23 @@ public class StepDO extends BaseDO {
         boolean isThisParent = this instanceof StepParentDO;
         boolean isOtherParent = another instanceof StepParentDO;
         
-    if ( another.id == id ) out = 0;
-    else if ( isThisComplete != isOtherComplete )
-            out = (isThisComplete) ? -1 : 1;
-    else if ( isThisParent != isOtherParent )
-            out = (isThisParent) ? 1 : -1;
-    else if ( isThisParent ) {
-            Float a = (float)this.relevance;
-            Float b = (float)((StepDO)another).relevance;
-            out = a.compareTo(b);                  
-    }
-    else {
-            Float a = this.getRelevanceTimesCompletion();
-            Float b = ((StepDO)another).getRelevanceTimesCompletion();
-            out = a.compareTo(b);
-    }
-   
-    return out;
+        if ( another.id == id ) out = 0;
+        else if ( isThisComplete != isOtherComplete )
+                out = (isThisComplete) ? -1 : 1;
+        else if ( isThisParent != isOtherParent )
+                out = (isThisParent) ? 1 : -1;
+        else if ( isThisParent ) {
+                Float a = (float)this.relevance;
+                Float b = (float)((StepDO)another).relevance;
+                out = a.compareTo(b);                  
+        }
+        else {
+                Float a = this.getRelevanceTimesCompletion();
+                Float b = ((StepDO)another).getRelevanceTimesCompletion();
+                out = a.compareTo(b);
+        }
+       
+        return out;
     }
     
     @SuppressWarnings("static-method")
