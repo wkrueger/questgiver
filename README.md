@@ -16,11 +16,6 @@ pessoal para aprendizado, e meu primeiro contato com java.
  
  - Notificações em eventos como expiração e resumo diário;
  
- 
-**Roadmap**
-
-Depois de alguns anos de abandono, pretendo anterar o indicador de performance, colocando um gráfico
-de histórico de pontos. Também pretendo criar uma widget pra colocar na área de trabalho.
 
 **Build**
 
@@ -28,3 +23,6 @@ Deve funcionar OK com Android Studio 2.x. No 1.x certamente não compilará de p
 à versão diferente da estrutura do Gradle.
 
 Inclui uma versão modificada do [spinner wheel](https://github.com/ai212983/android-spinnerwheel).
+
+**fixme**
+A identação pode estar meio quebrada em alguns pontos, isto provavelmente ocorreu quando fui colocar o projeto no github e rodei uma conversão de tabs pra espaços no editor.
