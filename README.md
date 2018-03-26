@@ -24,5 +24,5 @@ Deve funcionar OK com Android Studio 2.x. No 1.x certamente não compilará de p
 
 Inclui uma versão modificada do [spinner wheel](https://github.com/ai212983/android-spinnerwheel).
 
-**fixme**
+**fixme** 
 A identação pode estar meio quebrada em alguns pontos, isto provavelmente ocorreu quando fui colocar o projeto no github e rodei uma conversão de tabs pra espaços no editor.
