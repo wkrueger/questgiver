@@ -4,7 +4,7 @@ import android.animation.LayoutTransition;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.util.ArrayMap;
+import android.util.ArrayMap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
